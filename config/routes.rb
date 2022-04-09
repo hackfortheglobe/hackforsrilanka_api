@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       get 'powerschedules/:group_name', to: "powerschedule#index"
       get 'groups', to: "powerschedule#groups"
     end
+
+    namespace :slamdunk do
+      post 'submit', to: 'submissions#create'
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
