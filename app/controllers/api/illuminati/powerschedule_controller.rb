@@ -1,10 +1,19 @@
 class Api::Illuminati::PowerscheduleController < ApplicationController
   def index
-    # Do the filtering here
-    # Access query string through params["started_at"] for example
-    puts params
+    start_date = DateTime.parse(params["start_date"])
+    if not params["end_date"].present?
+      end_date = 10.days.from_now.utc
+    else
+      end_date = DateTime.parse(params["end_date"])
+    end
 
-    schedules = PowercutSchedule.all
+    schedules = PowercutSchedule.where(
+      "group_name = ? AND starting_period >= ? AND ending_period <= ?",
+      params["group_name"],
+      start_date,
+      end_date
+    )
+
     render json: schedules
   end
 

@@ -44,6 +44,28 @@ paths:
       responses:
         '200':
           description: successful
+  api/illuminati/powerschedules/{group_name}:
+    get:
+      summary: get power schedules between start and end times
+      parameters:
+      - name: group_name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        schema:
+          type: string
+      - name: end_date
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+        '400':
+          description: error
   "/api/slamdunk/upvote":
     parameters:
     - id: id
@@ -73,3 +95,4 @@ servers:
   variables:
     defaultHost:
       default: hackforsrilanka-api.herokuapp.com/
+- url: http://localhost:3000

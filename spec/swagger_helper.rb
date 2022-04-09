@@ -30,6 +30,9 @@ RSpec.configure do |config|
               default: 'hackforsrilanka-api.herokuapp.com/'
             }
           }
+        },
+        {
+          url: 'http://localhost:3000'
         }
       ]
     }
