@@ -10,6 +10,7 @@ class Api::Illuminati::PowerscheduleController < ApplicationController
 
   def groups
     # Return all unique group names
-    render json: []
+    unique_groups = PowercutSchedule.select(:group_name).distinct
+    render json: unique_groups
   end
 end

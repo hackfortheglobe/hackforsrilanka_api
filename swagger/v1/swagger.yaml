@@ -38,6 +38,12 @@ paths:
               required:
               - title
               - content
+  "/api/illuminati/groups":
+    get:
+      summary: get unique groups
+      responses:
+        '200':
+          description: successful
 servers:
 - url: https://{defaultHost}
   variables:
