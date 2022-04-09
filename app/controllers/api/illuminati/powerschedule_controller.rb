@@ -2,7 +2,7 @@ class Api::Illuminati::PowerscheduleController < ApplicationController
   def index
     start_date = DateTime.parse(params["start_date"])
     if not params["end_date"].present?
-      end_date = DateTime.now.utc
+      end_date = 10.days.from_now.utc
     else
       end_date = DateTime.parse(params["end_date"])
     end
