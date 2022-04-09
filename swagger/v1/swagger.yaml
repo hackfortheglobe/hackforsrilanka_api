@@ -5,6 +5,11 @@ info:
   version: v1
 paths:
   "/api/illuminati/data":
+    get:
+      summary: get data
+      responses:
+        '200':
+          description: successful
     post:
       summary: post data
       parameters: []

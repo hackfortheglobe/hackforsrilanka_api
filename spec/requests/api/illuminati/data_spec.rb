@@ -4,6 +4,22 @@ RSpec.describe 'api/illuminati/data', type: :request do
 
   path '/api/illuminati/data' do
 
+    get('get data') do
+      produces 'application/json'
+
+      response(200, 'successful') do
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+
     post('post data') do
       consumes 'application/json'
       produces 'application/json'
