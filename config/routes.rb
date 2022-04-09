@@ -5,8 +5,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  get 'api/illuminati/data', action: :index, controller: "api/illuminati/data"
-  post 'api/illuminati/data', action: :create, controller: "api/illuminati/data"
+  namespace :api do
+    namespace :illuminati do
+      get 'data', to: 'data#index'
+      post 'data', to: 'data#create'
+
+      get 'powerschedules', to: "powerschedule#index"
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
