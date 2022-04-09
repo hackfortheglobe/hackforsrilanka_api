@@ -1,10 +1,11 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/illuminati/data', type: :request do
-
   path '/api/illuminati/data' do
 
     get('get data') do
+      tags 'Illuminati'
+
       produces 'application/json'
 
       response(200, 'successful') do
@@ -21,6 +22,7 @@ RSpec.describe 'api/illuminati/data', type: :request do
     end
 
     post('post data') do
+      tags 'Illuminati'
       consumes 'application/json'
       produces 'application/json'
 

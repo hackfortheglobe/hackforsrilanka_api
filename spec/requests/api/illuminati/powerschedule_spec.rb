@@ -4,6 +4,8 @@ RSpec.describe "Api::Illuminati::Powerschedules", type: :request do
   path '/api/illuminati/groups' do
 
     get('get an array of unique groups') do
+      tags 'Illuminati'
+
       produces 'application/json'
 
       response(200, 'successful') do
@@ -20,14 +22,15 @@ RSpec.describe "Api::Illuminati::Powerschedules", type: :request do
     end
   end
 
-  path 'api/illuminati/powerschedules/{group_name}' do
+  path '/api/illuminati/powerschedules/{group_name}' do
 
     get('get power schedules between start and end times') do
+      tags 'Illuminati'
       produces 'application/json'
 
       parameter name: :group_name, in: :path, type: :string
-      parameter name: :start_date, in: :query, type: :string
-      parameter name: :end_date, in: :query, type: :string
+      parameter name: :start_date, in: :query, type: :string, format: :date_time
+      parameter name: :end_date, in: :query, type: :string, format: :date_time
 
       response(200, 'successful') do
 

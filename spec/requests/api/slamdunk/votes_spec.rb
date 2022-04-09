@@ -6,6 +6,8 @@ RSpec.describe "Api::Slamdunk::Votes", type: :request do
     parameter id: :id, in: :path, type: :integer
 
     post('increment upvotes') do
+      tags 'Slam Dunk'
+
       response(200, 'successful') do
         run_test!
       end
@@ -14,8 +16,10 @@ RSpec.describe "Api::Slamdunk::Votes", type: :request do
 
   path '/api/slamdunk/downvote/{id}' do
     parameter id: :id, in: :path, type: :integer
-    
+
     post('increment downvotes') do
+      tags 'Slam Dunk'
+
       response(200, 'successful') do
         run_test!
       end

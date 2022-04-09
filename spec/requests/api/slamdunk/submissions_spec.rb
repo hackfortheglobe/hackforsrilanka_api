@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Api::Slamdunk::Submissions", type: :request do
   path '/api/slamdunk/submit' do
     post('increment upvotes') do
+      tags 'Slam Dunk'
+
       consumes 'application/json'
       produces 'application/json'
 

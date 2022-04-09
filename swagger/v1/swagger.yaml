@@ -7,11 +7,15 @@ paths:
   "/api/illuminati/data":
     get:
       summary: get data
+      tags:
+      - Illuminati
       responses:
         '200':
           description: successful
     post:
       summary: post data
+      tags:
+      - Illuminati
       parameters: []
       responses:
         '200':
@@ -41,12 +45,16 @@ paths:
   "/api/illuminati/groups":
     get:
       summary: get an array of unique groups
+      tags:
+      - Illuminati
       responses:
         '200':
           description: successful
-  api/illuminati/powerschedules/{group_name}:
+  "/api/illuminati/powerschedules/{group_name}":
     get:
       summary: get power schedules between start and end times
+      tags:
+      - Illuminati
       parameters:
       - name: group_name
         in: path
@@ -55,10 +63,12 @@ paths:
           type: string
       - name: start_date
         in: query
+        format: date_time
         schema:
           type: string
       - name: end_date
         in: query
+        format: date_time
         schema:
           type: string
       responses:
@@ -69,6 +79,8 @@ paths:
   "/api/slamdunk/submit":
     post:
       summary: increment upvotes
+      tags:
+      - Slam Dunk
       parameters: []
       responses:
         '200':
@@ -112,6 +124,8 @@ paths:
         type: integer
     post:
       summary: increment upvotes
+      tags:
+      - Slam Dunk
       responses:
         '200':
           description: successful
@@ -124,6 +138,8 @@ paths:
         type: integer
     post:
       summary: increment downvotes
+      tags:
+      - Slam Dunk
       responses:
         '200':
           description: successful
