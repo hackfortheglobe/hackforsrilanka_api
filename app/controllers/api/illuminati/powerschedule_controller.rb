@@ -1,15 +1,15 @@
 class Api::Illuminati::PowerscheduleController < ApplicationController
   def index
-    start_date = params["start_date"].in_time_zone("Asia/Colombo").utc
+    start_date = DateTime.parse(params["start_date"])
     if not params["end_date"].present?
       end_date = DateTime.now.utc
     else
-      end_date = params["end_date"].in_time_zone("Asia/Colombo").utc
+      end_date = DateTime.parse(params["end_date"])
     end
 
     schedules = PowercutSchedule.where(
       "group_name = ? AND starting_period >= ? AND ending_period <= ?",
-      params["name"],
+      params["group_name"],
       start_date,
       end_date
     )

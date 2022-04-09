@@ -48,16 +48,16 @@ paths:
     get:
       summary: get power schedules between start and end times
       parameters:
-      - name: id
+      - name: group_name
         in: path
         required: true
         schema:
           type: string
-      - start_date: id
+      - name: start_date
         in: query
         schema:
           type: string
-      - end_date: id
+      - name: end_date
         in: query
         schema:
           type: string
@@ -71,4 +71,3 @@ servers:
   variables:
     defaultHost:
       default: hackforsrilanka-api.herokuapp.com/
-- url: http://localhost:3000

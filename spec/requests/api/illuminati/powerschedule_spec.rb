@@ -25,9 +25,9 @@ RSpec.describe "Api::Illuminati::Powerschedules", type: :request do
     get('get power schedules between start and end times') do
       produces 'application/json'
 
-      parameter name: :id, in: :path, type: :string
-      parameter start_date: :id, in: :query, type: :string
-      parameter end_date: :id, in: :query, type: :string
+      parameter name: :group_name, in: :path, type: :string
+      parameter name: :start_date, in: :query, type: :string
+      parameter name: :end_date, in: :query, type: :string
 
       response(200, 'successful') do
 
