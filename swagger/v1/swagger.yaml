@@ -40,7 +40,7 @@ paths:
               - content
   "/api/illuminati/groups":
     get:
-      summary: get unique groups
+      summary: get an array of unique groups
       responses:
         '200':
           description: successful
