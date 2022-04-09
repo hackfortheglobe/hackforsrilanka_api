@@ -20,7 +20,7 @@ RSpec.describe "Api::Illuminati::Powerschedules", type: :request do
     end
   end
 
-  path 'api/illuminati/powerschedules' do
+  path 'api/illuminati/powerschedules/{group_name}' do
 
     get('get power schedules between start and end times') do
       produces 'application/json'

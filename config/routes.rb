@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get 'data', to: 'data#index'
       post 'data', to: 'data#create'
 
-      get 'powerschedules', to: "powerschedule#index"
+      get 'powerschedules/:group_name', to: "powerschedule#index"
       get 'groups', to: "powerschedule#groups"
     end
   end
