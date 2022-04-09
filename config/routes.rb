@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     namespace :slamdunk do
       post 'upvote/:id', to: "votes#upvote"
       post 'downvote/:id', to: "votes#downvote"
+      post 'submit', to: 'submissions#create'
     end
-
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
