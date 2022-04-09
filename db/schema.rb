@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_192618) do
     t.integer "wait_time"
     t.integer "gas_type", null: false
     t.integer "availability", null: false
-    t.integer "upvotes", default: [], array: true
-    t.integer "downvotes", default: [], array: true
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
     t.datetime "submitted_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

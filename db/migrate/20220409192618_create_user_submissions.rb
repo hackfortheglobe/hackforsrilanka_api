@@ -5,8 +5,8 @@ class CreateUserSubmissions < ActiveRecord::Migration[7.0]
       t.integer :wait_time
       t.integer :gas_type, null: false
       t.integer :availability, null: false
-      t.integer 'upvotes', array: true, default: []
-      t.integer 'downvotes', array: true, default: []
+      t.integer :upvotes, default: 0
+      t.integer :downvotes, default: 0
       t.datetime 'submitted_at', null: false
 
       t.timestamps
