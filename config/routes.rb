@@ -13,6 +13,12 @@ Rails.application.routes.draw do
       get 'powerschedules', to: "powerschedule#index"
       get 'groups', to: "powerschedule#groups"
     end
+
+    namespace :slamdunk do
+      post 'upvotes', to: "votes#upvote"
+      post 'downvotes', to: "votes#downvote"
+    end
+
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
