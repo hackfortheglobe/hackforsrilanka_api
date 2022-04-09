@@ -19,4 +19,36 @@ RSpec.describe "Api::Illuminati::Powerschedules", type: :request do
       end
     end
   end
+
+  path 'api/illuminati/powerschedules/{group_name}' do
+
+    get('get power schedules between start and end times') do
+      produces 'application/json'
+
+      parameter name: :group_name, in: :path, type: :string
+      parameter name: :start_date, in: :query, type: :string
+      parameter name: :end_date, in: :query, type: :string
+
+      response(200, 'successful') do
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+
+      response(400, 'error') do
+        let(:name) { "" }
+        let(:start_date) { "" }
+        let(:end_date) { "" }
+        run_test!
+      end
+
+    end
+  end
+
 end
