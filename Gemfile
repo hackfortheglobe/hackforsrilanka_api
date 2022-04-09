@@ -47,6 +47,8 @@ gem 'rswag-ui'
 
 gem 'rack-cors'
 
+gem 'geocoder'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
