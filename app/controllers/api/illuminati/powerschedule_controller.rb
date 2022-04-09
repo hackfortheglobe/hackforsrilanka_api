@@ -8,7 +8,8 @@ class Api::Illuminati::PowerscheduleController < ApplicationController
     end
 
     schedules = PowercutSchedule.where(
-      "starting_period >= ? AND ending_period <= ?",
+      "group_name = ? AND starting_period >= ? AND ending_period <= ?",
+      params["name"],
       start_date,
       end_date
     )
