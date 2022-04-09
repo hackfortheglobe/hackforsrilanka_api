@@ -44,9 +44,32 @@ paths:
       responses:
         '200':
           description: successful
+  "/api/slamdunk/upvote":
+    parameters:
+    - id: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: increment upvotes
+      responses:
+        '200':
+          description: successful
+  "/api/slamdunk/downvote":
+    parameters:
+    - id: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: increment downvotes
+      responses:
+        '200':
+          description: successful
 servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
       default: hackforsrilanka-api.herokuapp.com/
-- url: http://localhost:3000
