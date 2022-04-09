@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
 
     namespace :slamdunk do
+      post 'upvote/:id', to: "votes#upvote"
+      post 'downvote/:id', to: "votes#downvote"
       post 'submit', to: 'submissions#create'
     end
   end

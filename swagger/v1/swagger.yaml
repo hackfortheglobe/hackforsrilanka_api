@@ -66,6 +66,30 @@ paths:
           description: successful
         '400':
           description: error
+  "/api/slamdunk/upvote/{id}":
+    parameters:
+    - id: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    post:
+      summary: increment upvotes
+      responses:
+        '200':
+          description: successful
+  "/api/slamdunk/downvote/{id}":
+    parameters:
+    - id: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    post:
+      summary: increment downvotes
+      responses:
+        '200':
+          description: successful
 servers:
 - url: https://{defaultHost}
   variables:
