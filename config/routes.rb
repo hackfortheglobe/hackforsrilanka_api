@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     end
 
     namespace :slamdunk do
-      post 'upvotes', to: "votes#upvote"
-      post 'downvotes', to: "votes#downvote"
+      post 'upvote/:id', to: "votes#upvote"
+      post 'downvote/:id', to: "votes#downvote"
     end
 
   end

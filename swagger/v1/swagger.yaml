@@ -66,26 +66,26 @@ paths:
           description: successful
         '400':
           description: error
-  "/api/slamdunk/upvote":
+  "/api/slamdunk/upvote/{id}":
     parameters:
     - id: id
       in: path
       required: true
       schema:
         type: integer
-    get:
+    post:
       summary: increment upvotes
       responses:
         '200':
           description: successful
-  "/api/slamdunk/downvote":
+  "/api/slamdunk/downvote/{id}":
     parameters:
     - id: id
       in: path
       required: true
       schema:
         type: integer
-    get:
+    post:
       summary: increment downvotes
       responses:
         '200':
