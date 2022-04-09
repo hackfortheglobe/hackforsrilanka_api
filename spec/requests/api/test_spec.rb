@@ -1,11 +1,21 @@
-require 'rails_helper'
+require 'swagger_helper'
 
-RSpec.describe "Api::Tests", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/api/test/index"
-      expect(response).to have_http_status(:success)
+RSpec.describe 'api/test', type: :request do
+
+  path '/api/test' do
+
+    get('list tests') do
+      response(200, 'successful') do
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
     end
   end
-
 end
