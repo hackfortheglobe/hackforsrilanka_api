@@ -4,12 +4,35 @@ info:
   title: API V1
   version: v1
 paths:
-  "/api/test":
-    get:
-      summary: list tests
+  "/api/illuminati/data":
+    post:
+      summary: post data
+      parameters: []
       responses:
         '200':
           description: successful
+        '400':
+          description: error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                schedules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      starting_period:
+                        type: string
+                      ending_period:
+                        type: string
+                      group_name:
+                        type: string
+              required:
+              - title
+              - content
 servers:
 - url: https://{defaultHost}
   variables:

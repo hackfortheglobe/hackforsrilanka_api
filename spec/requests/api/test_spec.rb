@@ -1,10 +1,31 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/test', type: :request do
+RSpec.describe 'api/illuminati/data', type: :request do
 
-  path '/api/test' do
+  path '/api/illuminati/data' do
 
-    get('list tests') do
+    post('post data') do
+      consumes 'application/json'
+      produces 'application/json'
+
+      parameter name: :schedules, in: :body, schema: {
+        type: :object,
+        properties: {
+          schedules: {
+            type: :array,
+            "items": {
+              "type": "object",
+              "properties": {
+                starting_period: { type: :string },
+                ending_period: { type: :string },
+                group_name: { type: :string }
+              }
+            }
+          },
+        },
+        required: [ 'title', 'content' ]
+      }
+
       response(200, 'successful') do
 
         after do |example|
@@ -14,6 +35,12 @@ RSpec.describe 'api/test', type: :request do
             }
           }
         end
+        run_test!
+      end
+
+      response(400, 'error') do
+        let(:schedules) { { "schedules": [ {} ] } }
+
         run_test!
       end
     end
