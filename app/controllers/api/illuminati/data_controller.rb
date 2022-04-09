@@ -2,7 +2,7 @@ class Api::Illuminati::DataController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    render json: { "Hello": "World!" }
+    render json: PowercutSchedule.all
   end
 
   def create
