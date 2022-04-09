@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_09_191926) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_09_192618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,4 +33,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_09_191926) do
     t.index ["latitude", "longitude"], name: "index_stations_on_latitude_and_longitude"
   end
 
+  create_table "user_submissions", force: :cascade do |t|
+    t.bigint "station_id", null: false
+    t.integer "wait_time"
+    t.integer "gas_type", null: false
+    t.integer "availability", null: false
+    t.integer "upvotes", default: [], array: true
+    t.integer "downvotes", default: [], array: true
+    t.datetime "submitted_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["station_id"], name: "index_user_submissions_on_station_id"
+  end
+
+  add_foreign_key "user_submissions", "stations"
 end
