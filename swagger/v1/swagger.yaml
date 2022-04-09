@@ -64,6 +64,8 @@ paths:
       responses:
         '200':
           description: successful
+        '400':
+          description: error
 servers:
 - url: https://{defaultHost}
   variables:

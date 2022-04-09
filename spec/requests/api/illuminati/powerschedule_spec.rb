@@ -45,6 +45,7 @@ RSpec.describe "Api::Illuminati::Powerschedules", type: :request do
         let(:name) { "" }
         let(:start_date) { "" }
         let(:end_date) { "" }
+        run_test!
       end
 
     end
