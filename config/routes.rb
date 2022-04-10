@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post 'upvote/:id', to: "votes#upvote"
       post 'downvote/:id', to: "votes#downvote"
       post 'submit', to: 'submissions#create'
+      get 'search', to: 'submissions#search'
     end
   end
 

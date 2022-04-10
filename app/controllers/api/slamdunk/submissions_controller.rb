@@ -12,6 +12,18 @@ class Api::Slamdunk::SubmissionsController < ApplicationController
     end
   end
 
+  def search
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    distance_km = params[:distance_km] || 50
+
+    nearby_stations = Station.near([latitude, longitude], distance_km, units: :km)
+    sorted_stations = nearby_stations.sort_by do |station|
+      station.distance_from([latitude, longitude])
+    end
+
+    render json: sorted_stations
+  end
 
 private
   def submission_params
